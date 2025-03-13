@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField]public GameState gameState;
+    public GameState GameState => gameState;
     [SerializeField]public Difficulty difficulty;
     [SerializeField] private int score;
 

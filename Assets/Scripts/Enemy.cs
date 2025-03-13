@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor.Build;
 
-public class Enemy : MonoBehaviour
+public class Enemy : GameBehaviour
 {
     public EnemyType myType;
     public PatrolType myPatrolType;
@@ -19,11 +19,11 @@ public class Enemy : MonoBehaviour
     private Transform endPos;       //Needed for PingPong movement
     private bool reverse;           //Needed for PingPong movement
     private int patrolPoint;        //Needed for Linear movement;
-    private EnemyManager _EM;
+   
 
-    public void Initialize(EnemyManager _em, Transform _startPos)
+    public void Initialize(Transform _startPos)
     {
-        _EM = _em;
+        
 
         switch(myType)
         {
@@ -99,8 +99,8 @@ public class Enemy : MonoBehaviour
     {
         myHealth -= _damage;
 
-        if(myHealth <= 0)
-            myHealth = 0 
+        if (myHealth <= 0)
+            myHealth = 0; 
 
         if (myHealth <= 0)
             Die();

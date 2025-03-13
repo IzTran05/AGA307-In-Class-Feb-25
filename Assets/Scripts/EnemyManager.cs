@@ -7,7 +7,7 @@ public enum EnemyType
     OneHanded, TwoHanded, Archer
 }
 public enum PatrolType { Linear, PingPong, Random}
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : Singleton <EnemyManager>
 {
     public int initialSpawnCount = 6;
     public float initialSpawnDelay = 1f;
@@ -36,6 +36,9 @@ public class EnemyManager : MonoBehaviour
             KillSpecificEnemy(killCondition);
         if (Input.GetKeyDown(KeyCode.H))
             KillAllEnemies();
+        if (Input.GetKeyDown(KeyCode.C))
+            KillClosestEnemy();
+
     }
 
     /// <summary>
@@ -44,10 +47,13 @@ public class EnemyManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator SpawnWithDelay(int _spawnCount, float _spawnDelay)
     {
-        for(int i = 0; i < _spawnCount; i++)
         {
-            yield return new WaitForSeconds(_spawnDelay);
-            SpawnEnemy();
+            for (int i = 0; i < _spawnCount; i++)
+            {
+                yield return new WaitForSeconds(_spawnDelay);
+                if (_CurrentGameState == GameState.Playing)
+                    SpawnEnemy();
+            }
         }
     }
 
@@ -73,7 +79,7 @@ public class EnemyManager : MonoBehaviour
         GameObject enemy = Instantiate(enemyTypes[rndEnemy], spawnPoints[rndSpawn].transform.position, spawnPoints[rndSpawn].transform.rotation);
         enemy.name = enemyNames[rndName];
         if(enemy.GetComponent<Enemy>() != null)
-            enemy.GetComponent<Enemy>().Initialize(this, GetRandomSpawnPoint);
+            enemy.GetComponent<Enemy>().Initialize(GetRandomSpawnPoint);
         enemies.Add(enemy.GetComponent<Enemy>());
     }
 
@@ -81,7 +87,7 @@ public class EnemyManager : MonoBehaviour
     /// Kills a enemy
     /// </summary>
     /// <param name="_enemy">The enemy we want to kill</param>
-    private void KillEnemy(GameObject _enemy)
+    private void KillEnemy(Enemy _enemy)
     {
         if (NoEnemies)
             return;
@@ -101,6 +107,13 @@ public class EnemyManager : MonoBehaviour
 
         int rndEnemy = Random.Range(0, EnemyCount);
         KillEnemy(enemies[rndEnemy]); 
+    }
+
+    private void KillClosestEnemy()
+    {
+        Transform closest = GetClosestObject(_PLAYER.transform, enemies);
+        print(closest.name);
+        KillEnemy(closest.GetComponent<Enemy>());
     }
 
     /// <summary>

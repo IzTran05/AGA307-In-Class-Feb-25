@@ -557,7 +557,7 @@ MonoBehaviour:
   myPatrolType: 0
   moveDistance: 1000
   stoppingDistance: 0.3
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 8697343150988753984}
   myHealth: 0
 --- !u!136 &3526438777014621587
 CapsuleCollider:
@@ -1934,3 +1934,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6279386347842498732, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
   m_PrefabInstance: {fileID: 99919558957294992}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8697343150988753984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8778034423479081424, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
+  m_PrefabInstance: {fileID: 99919558957294992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01d99e61376ebf40aab2388a5631dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

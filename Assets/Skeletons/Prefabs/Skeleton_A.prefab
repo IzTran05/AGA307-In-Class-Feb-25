@@ -899,7 +899,7 @@ MonoBehaviour:
   myPatrolType: 0
   moveDistance: 1000
   stoppingDistance: 0.3
-  healthBar: {fileID: 1628842251581141025}
+  healthBar: {fileID: 2173534467231318881}
   myHealth: 0
 --- !u!136 &8254880955050130032
 CapsuleCollider:
@@ -1770,6 +1770,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 405068}
     m_Modifications:
+    - target: {fileID: 2262888213278225415, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3102178407032681297, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
       propertyPath: m_Name
       value: EnemyUI
@@ -1869,32 +1873,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3102178407032681297, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1628842251581141025}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
---- !u!224 &3520963082529401373 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6279386347842498732, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
-  m_PrefabInstance: {fileID: 7491779597692508849}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5545341861602453984 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3102178407032681297, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
-  m_PrefabInstance: {fileID: 7491779597692508849}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1628842251581141025
+--- !u!114 &2173534467231318881 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8778034423479081424, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
+  m_PrefabInstance: {fileID: 7491779597692508849}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5545341861602453984}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a01d99e61376ebf40aab2388a5631dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myName: {fileID: 0}
-  healthFill: {fileID: 0}
+--- !u!224 &3520963082529401373 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6279386347842498732, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
+  m_PrefabInstance: {fileID: 7491779597692508849}
+  m_PrefabAsset: {fileID: 0}

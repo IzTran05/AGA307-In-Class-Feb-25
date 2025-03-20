@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 6660672199731879348}
   - component: {fileID: 2262888213278225415}
   - component: {fileID: 1271637017574528924}
+  - component: {fileID: 8778034423479081424}
   m_Layer: 5
   m_Name: EnemyUI
   m_TagString: Untagged
@@ -111,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.77}
+  m_AnchoredPosition: {x: 0, y: 1.7700043}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6660672199731879348
@@ -177,6 +178,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8778034423479081424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3102178407032681297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01d99e61376ebf40aab2388a5631dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: {fileID: 4815364549890485543}
+  healthFill: {fileID: 7194116891732510819}
 --- !u!1 &4066406002084533087
 GameObject:
   m_ObjectHideFlags: 0

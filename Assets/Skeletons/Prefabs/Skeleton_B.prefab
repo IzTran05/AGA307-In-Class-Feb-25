@@ -1460,6 +1460,7 @@ GameObject:
   - component: {fileID: 477336}
   - component: {fileID: 9532452}
   - component: {fileID: 1585835534519243838}
+  - component: {fileID: 9168969620310165824}
   m_Layer: 0
   m_Name: Skeleton_B
   m_TagString: Untagged
@@ -1519,7 +1520,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf0305dfc3619940a91b1b0bc87c6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myType: 0
+  myPatrolType: 0
   moveDistance: 1000
+  stoppingDistance: 0.3
+  healthBar: {fileID: 0}
+  myHealth: 0
+--- !u!136 &9168969620310165824
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165576}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Height: 1.6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &166360
 GameObject:
   m_ObjectHideFlags: 0

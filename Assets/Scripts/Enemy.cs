@@ -4,15 +4,21 @@ using UnityEditor.Build;
 
 public class Enemy : GameBehaviour
 {
+    [Header("Basics")]
     public EnemyType myType;
+    [Header("Stats")]
     public PatrolType myPatrolType;
     public float moveDistance = 1000f;
     public float stoppingDistance = 0.3f;
-    
+
+    [Header("Health Bar")]
+    public HealthBar healthBar;
+
     private float mySpeed;
     private int myScore;
     public int MyScore => myScore;
     public int myHealth;
+    private int myMaxHealth;
     private int myDamage;
     private Transform moveToPos;    //Needed for all movement
     private Transform startPos;     //Needed for PingPong movement
@@ -21,7 +27,7 @@ public class Enemy : GameBehaviour
     private int patrolPoint;        //Needed for Linear movement;
    
 
-    public void Initialize(Transform _startPos)
+    public void Initialize(Transform _startPos, string _name)
     {
         
 
@@ -55,10 +61,14 @@ public class Enemy : GameBehaviour
                 myScore = 10;
                 break;
         }
+        myMaxHealth = myHealth;
 
         startPos = _startPos;
         endPos = _EM.GetRandomSpawnPoint;
         moveToPos = endPos;
+
+        healthBar.SetName(_name);
+        healthBar.UpdateHealthBar(myHealth, myMaxHealth);
 
         StartCoroutine(Move());
     }

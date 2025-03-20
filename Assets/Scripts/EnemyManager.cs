@@ -79,8 +79,10 @@ public class EnemyManager : Singleton <EnemyManager>
         GameObject enemy = Instantiate(enemyTypes[rndEnemy], spawnPoints[rndSpawn].transform.position, spawnPoints[rndSpawn].transform.rotation);
         enemy.name = enemyNames[rndName];
         if(enemy.GetComponent<Enemy>() != null)
-            enemy.GetComponent<Enemy>().Initialize(GetRandomSpawnPoint);
+            enemy.GetComponent<Enemy>().Initialize(GetRandomSpawnPoint, enemy.name);
         enemies.Add(enemy.GetComponent<Enemy>());
+        _UI.UpdateEnemyCount(EnemyCount);
+
     }
 
     /// <summary>
@@ -95,6 +97,7 @@ public class EnemyManager : Singleton <EnemyManager>
         GameManager.instance.AddScore(_enemy.GetComponent<Enemy>().MyScore);
         Destroy(_enemy);
         enemies.Remove(_enemy);
+        _UI.UpdateEnemyCount(EnemyCount);
     }
 
     /// <summary>

@@ -25,11 +25,16 @@ public class Enemy : GameBehaviour
     private Transform endPos;       //Needed for PingPong movement
     private bool reverse;           //Needed for PingPong movement
     private int patrolPoint;        //Needed for Linear movement;
+
+    public Animator anim;
    
+    
+
 
     public void Initialize(Transform _startPos, string _name)
     {
-        
+
+        //anim = GetComponent<Animator>();
 
         switch(myType)
         {
@@ -70,7 +75,7 @@ public class Enemy : GameBehaviour
         healthBar.SetName(_name);
         healthBar.UpdateHealthBar(myHealth, myMaxHealth);
 
-        StartCoroutine(Move());
+       // StartCoroutine(Move());
     }
 
     private IEnumerator Move()
@@ -112,15 +117,25 @@ public class Enemy : GameBehaviour
         if (myHealth <= 0)
             myHealth = 0; 
 
-        if (myHealth <= 0)
+        if (myHealth == 0)
             Die();
+        else
+
+            PlayAnimation("Hit", 3);
     }
 
     public void Die()
     {
-
+        GetComponent<Collider>().enabled = false;
+        PlayAnimation("Die", 3);
+        StopAllCoroutines();
     }
 
+    private void PlayAnimation(string _animationName, int _animationCount)
+    {
+        int rnd = Random.Range(1, _animationCount + 1);
+        anim.SetTrigger(_animationName + rnd);
+    }
 
     /*
     private IEnumerator Move()

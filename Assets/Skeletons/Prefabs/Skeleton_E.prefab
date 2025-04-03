@@ -784,6 +784,7 @@ MonoBehaviour:
   stoppingDistance: 0.3
   healthBar: {fileID: 8778034423479081424, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
   myHealth: 0
+  anim: {fileID: 9523490}
 --- !u!136 &-6816704839968349986
 CapsuleCollider:
   m_ObjectHideFlags: 0

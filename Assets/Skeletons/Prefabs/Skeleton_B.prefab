@@ -1461,6 +1461,7 @@ GameObject:
   - component: {fileID: 9532452}
   - component: {fileID: 1585835534519243838}
   - component: {fileID: 9168969620310165824}
+  - component: {fileID: 535514610433759293}
   m_Layer: 0
   m_Name: Skeleton_B
   m_TagString: Untagged
@@ -1528,6 +1529,7 @@ MonoBehaviour:
   healthBar: {fileID: 6404962364697586584}
   myHealth: 0
   anim: {fileID: 9532452}
+  agent: {fileID: 535514610433759293}
 --- !u!136 &9168969620310165824
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1551,6 +1553,28 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!195 &535514610433759293
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165576}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &166360
 GameObject:
   m_ObjectHideFlags: 0

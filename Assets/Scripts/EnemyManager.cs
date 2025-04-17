@@ -6,7 +6,10 @@ public enum EnemyType
 {
     OneHanded, TwoHanded, Archer
 }
-public enum PatrolType { Linear, PingPong, Random}
+public enum EnemyState { Linear, PingPong, Random, Patrol, Detect, Chase, Attack, Die}
+
+public enum PatrolType { Linear, PingPong, Random }
+
 public class EnemyManager : Singleton <EnemyManager>
 {
     public int initialSpawnCount = 6;

@@ -2251,6 +2251,7 @@ GameObject:
   - component: {fileID: 9520798}
   - component: {fileID: -2482645406263580526}
   - component: {fileID: -5607057628067014668}
+  - component: {fileID: -2742907061479838164}
   m_Layer: 0
   m_Name: Skeleton_C
   m_TagString: Untagged
@@ -2313,12 +2314,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 0
-  myPatrolType: 0
+  myState: 0
+  myPatrol: 0
   moveDistance: 1000
   stoppingDistance: 0.3
   healthBar: {fileID: 9107546968243639595}
   myHealth: 0
   anim: {fileID: 9520798}
+  agent: {fileID: -2742907061479838164}
 --- !u!136 &-5607057628067014668
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2342,6 +2345,28 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!195 &-2742907061479838164
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188982}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &189416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,6 +2569,10 @@ PrefabInstance:
     - target: {fileID: 3102178407032681297, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
       propertyPath: m_Name
       value: EnemyUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815364549890485543, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
+      propertyPath: m_text
+      value: New Text
       objectReference: {fileID: 0}
     - target: {fileID: 6279386347842498732, guid: 5ca42093ee6f9114f87421ebb0211084, type: 3}
       propertyPath: m_Pivot.x

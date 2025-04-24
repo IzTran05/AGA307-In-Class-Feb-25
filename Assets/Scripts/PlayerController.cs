@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    [SerializeField] private int health = 100;
     public float speed = 10f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
@@ -12,6 +13,11 @@ public class PlayerController : Singleton<PlayerController>
     private Vector3 velocity;
     private CharacterController characterController;
     private bool isGrounded;
+
+    [Header("Audio")]
+    [SerializeField] private float stepRate = 0.5f;
+    private float stepCooldown;
+    private AudioSource audiosource;
 
     void Start()
     {
@@ -42,5 +48,19 @@ public class PlayerController : Singleton<PlayerController>
         //Apply the gravity to our velocity
         velocity.y += gravity;
         characterController.Move(velocity * Time.deltaTime);
+
+        //Audio footsetp stuff
+        stepCooldown -= Time.deltaTime;
+        if (stepCooldown < stepRate && isGrounded && (move.x != 0 || move.z !=0))
+        {
+            stepCooldown = stepRate;
+            _SOUND.PlayPlayerFootstep(audioSource);
+        }
+    }
+
+    public void TakeDamage(int _damage)
+    {
+        health -= _damage;
+        _UI.UpdateHealth(health);
     }
 }

@@ -37,6 +37,8 @@ public class Enemy : GameBehaviour
     public Animator anim;
     public NavMeshAgent agent;
 
+    private EnemyWeapon enemyWeapon;
+
     private void ChangeSpeed(float _speed) => agent.speed = _speed;
    
     
@@ -64,14 +66,14 @@ public class Enemy : GameBehaviour
                 myPatrol = PatrolType.PingPong;
                 break;
             case EnemyType.Archer:
-                mySpeed = 20;
+                mySpeed = 5;
                 myHealth = 50;
                 myDamage = 75;
                 myScore = 10;
                 myPatrol = PatrolType.Random;
                 break;
             default:
-                mySpeed = 100;
+                mySpeed = 5;
                 myHealth = 100;
                 myDamage = 10;
                 myScore = 10;
@@ -86,7 +88,15 @@ public class Enemy : GameBehaviour
         healthBar.SetName(_name);
         healthBar.UpdateHealthBar(myHealth, myMaxHealth);
 
-       SetupAI();
+        if (GetComponentInChildren<EnemyWeapon>() != null)
+        {
+            enemyWeapon = GetComponentInChildren<EnemyWeapon>();
+            enemyWeapon.SetDamage(myDamage);
+        }
+        else
+            Debug.LogWarning("No Enemy Weapon Found");
+
+            SetupAI();
     }
 
     private void SetupAI()
@@ -244,17 +254,14 @@ public class Enemy : GameBehaviour
         anim.SetTrigger(_animationName + rnd);
     }
 
-    /*
-    private IEnumerator Move()
+   public void EnableCollider()
     {
-        for(int i = 0; i < moveDistance; i++)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime);
-            yield return null;
-        }
-        transform.Rotate(Vector3.up * 180);
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
-        StartCoroutine(Move());
+        enemyWeapon.SetCollider(true);
     }
-    */
+
+    public void DisableCollider()
+    {
+        enemyWeapon.SetCollider(false);
+    }
+
 }
